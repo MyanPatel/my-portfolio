@@ -1,0 +1,123 @@
+---
+import "../styles/global.css";
+
+const { title = "Myan Patel", description = "SRE / Cloud / Automation" } = Astro.props;
+
+const path = Astro.url.pathname;
+const isActive = (href) => (href === "/" ? path === "/" : path.startsWith(href));
+const navLinkClass = (href) =>
+  `rounded-lg px-3 py-2 text-sm transition ${
+    isActive(href)
+      ? "bg-white/10 text-white ring-1 ring-white/15"
+      : "text-slate-300 hover:bg-white/5 hover:text-white"
+  }`;
+
+// Social links
+const socials = {
+  github: "https://github.com/MyanPatel",
+  linkedin: "https://www.linkedin.com/in/myan-patel/",
+  instagram: "https://www.instagram.com/TechTalkHQ",
+};
+
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+
+  <body class="min-h-screen bg-slate-950 text-slate-100">
+    <!-- Background glow -->
+    <div class="pointer-events-none fixed inset-0 -z-10">
+      <div class="absolute -top-24 left-1/2 h-72 w-[44rem] -translate-x-1/2 rounded-full bg-indigo-500/20 blur-3xl"></div>
+      <div class="absolute top-48 left-1/4 h-72 w-[36rem] rounded-full bg-cyan-400/15 blur-3xl"></div>
+    </div>
+
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/60 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <a href="/" class="group inline-flex items-center gap-2">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15">
+            <span class="text-sm font-semibold">MP</span>
+          </span>
+          <span class="font-semibold tracking-tight group-hover:text-white">Myan Patel</span>
+        </a>
+
+        <nav class="flex items-center gap-1 text-sm">
+            <a class={navLinkClass("/projects")} href="/projects">Projects</a>
+            <a class={navLinkClass("/about")} href="/about">About</a>
+            <a class={navLinkClass("/contact")} href="/contact">Contact</a>
+        </nav>
+
+      </div>
+    </header>
+
+    <main class="mx-auto w-full max-w-6xl px-4 py-10">
+      <slot />
+    </main>
+
+    <footer class="border-t border-white/10">
+  <div class="mx-auto max-w-6xl px-4 py-10">
+    <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+      <p class="text-sm text-slate-400">
+        © {new Date().getFullYear()} Myan Patel
+      </p>
+
+      <div class="flex items-center gap-4">
+        <!-- GitHub -->
+        <a
+          href={socials.github}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="GitHub"
+          class="footer-icon"
+        >
+          <svg class="h-5 w-5 icon-github" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M12 .5C5.73.5.5 5.78.5 12.3c0 5.21 3.44 9.63 8.21 11.19.6.11.82-.27.82-.6v-2.14c-3.34.75-4.04-1.67-4.04-1.67-.55-1.42-1.35-1.8-1.35-1.8-1.1-.77.08-.75.08-.75 1.22.09 1.86 1.28 1.86 1.28 1.08 1.9 2.84 1.35 3.54 1.03.11-.8.42-1.35.76-1.66-2.66-.31-5.47-1.37-5.47-6.11 0-1.35.47-2.45 1.24-3.31-.12-.31-.54-1.56.12-3.26 0 0 1.01-.33 3.3 1.26a11.2 11.2 0 013.01-.42c1.02 0 2.04.14 3.01.42 2.29-1.59 3.3-1.26 3.3-1.26.66 1.7.24 2.95.12 3.26.77.86 1.24 1.96 1.24 3.31 0 4.75-2.82 5.79-5.5 6.1.43.38.82 1.12.82 2.26v3.35c0 .33.22.72.83.6 4.77-1.56 8.2-5.98 8.2-11.19C23.5 5.78 18.27.5 12 .5z"
+            />
+          </svg>
+        </a>
+      
+        <!-- LinkedIn -->
+        <a
+          href={socials.linkedin}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="LinkedIn"
+          class="footer-icon"
+        >
+          <svg class="h-5 w-5 icon-linkedin" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4v16h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4.03 0 4.78 2.65 4.78 6.1V24h-4v-7.7c0-1.84-.03-4.21-2.56-4.21-2.56 0-2.95 2-2.95 4.08V24h-4V8z"
+            />
+          </svg>
+        </a>
+      
+        <!-- Instagram (correct modern logo) -->
+        <a
+          href={socials.instagram}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Instagram"
+          class="footer-icon"
+        >
+          <svg class="h-5 w-5 icon-instagram" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zM17.5 6.5a1 1 0 100 2 1 1 0 000-2z"
+            />
+          </svg>
+        </a>
+      </div>      
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

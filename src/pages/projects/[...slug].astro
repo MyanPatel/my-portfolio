@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((p) => ({ params: { slug: p.slug }, props: { project: p } }));
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+
+const dateStr = project.data.date.toISOString().slice(0, 10);
+---
+
+<BaseLayout title={`${project.data.title} — Myan Patel`} description={project.data.summary}>
+  <a class="text-sm text-slate-300 hover:text-white hover:underline" href="/projects">← Back to projects</a>
+
+  <header class="mt-6">
+    <div class="flex flex-wrap items-center gap-3 text-sm text-slate-300">
+      <span class="rounded-full bg-white/5 px-3 py-1 ring-1 ring-white/10">{dateStr}</span>
+      {project.data.stack?.length > 0 && (
+        <div class="flex flex-wrap gap-2">
+          {project.data.stack.map((s) => (
+            <span class="rounded-full bg-white/10 px-3 py-1 text-xs text-slate-200 ring-1 ring-white/10">
+              {s}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <h1 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">{project.data.title}</h1>
+    <p class="mt-3 max-w-3xl text-slate-300 sm:text-lg">{project.data.summary}</p>
+  </header>
+
+  <article class="prose prose-invert mt-10 max-w-none">
+    <Content />
+  </article>
+</BaseLayout>

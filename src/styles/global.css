@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* A nicer baseline */
+:root {
+  color-scheme: light;
+}
+
+body {
+  font-feature-settings: "ss01" 1, "cv11" 1;
+}
+
+/* Optional: make prose nicer (used on project detail pages) */
+.prose {
+  max-width: 72ch;
+}
+
+/* Reusable card styling */
+.card {
+    @apply rounded-2xl border border-white/10 bg-white/5 transition
+      hover:-translate-y-0.5 hover:bg-white/10 hover:border-white/15;
+  }
+
+/* Footer social icons */
+.footer-icon {
+  @apply inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-400 hover:text-white transition;
+}
+
+.footer-icon svg {
+  @apply h-5 w-5;
+}
+
+/* Nudge icon sizing/alignment for a consistent row */
+.footer-icon .icon-github {
+  @apply scale-100;
+}
+
+.footer-icon .icon-linkedin {
+  @apply scale-100;
+}
+
+.footer-icon .icon-instagram {
+  @apply scale-105 translate-y-[0.5px];
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+      transition-duration: 0ms !important;
+      animation-duration: 0ms !important;
+    }
+  }
+  

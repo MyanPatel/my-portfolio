@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const email = "myan@example.com";
+const subject = "Portfolio enquiry";
+const body = "Hi Myan,%0D%0A%0D%0AI came across your portfolio and would like to get in touch.";
+const mailto = `mailto:${email}?subject=${subject}&body=${body}`;
+---
+
+<BaseLayout title="Contact — Myan Patel" description="How to get in touch.">
+  <section class="mx-auto max-w-3xl">
+    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">Contact</h1>
+    <p class="mt-4 text-slate-300 sm:text-lg">
+      If you’d like to talk about roles, projects, or opportunities, the easiest way to reach me is via email or LinkedIn.
+    </p>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+      <!-- Email -->
+      <a class="card p-6" href={mailto}>
+        <p class="text-sm text-slate-400">Email</p>
+        <p class="mt-1 text-lg font-semibold">Send me an email</p>
+        <p class="mt-2 text-sm text-slate-300">
+          Opens your email client with a pre-filled message.
+        </p>
+      </a>
+
+      <!-- LinkedIn -->
+      <a
+        class="card p-6"
+        href="https://www.linkedin.com/in/myan-patel"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <p class="text-sm text-slate-400">LinkedIn</p>
+        <p class="mt-1 text-lg font-semibold">Message me on LinkedIn</p>
+        <p class="mt-2 text-sm text-slate-300">
+          Ideal for recruiters and quick chats.
+        </p>
+      </a>
+
+      <!-- GitHub -->
+      <a
+        class="card p-6 sm:col-span-2"
+        href="https://www.github.com/MyanPatel"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <p class="text-sm text-slate-400">GitHub</p>
+        <p class="mt-1 text-lg font-semibold">View my work</p>
+        <p class="mt-2 text-sm text-slate-300">
+          Code, labs, and supporting material for projects on this site.
+        </p>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

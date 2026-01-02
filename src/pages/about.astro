@@ -1,0 +1,128 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="About — Myan Patel" description="Background, focus areas, and what I'm looking for next.">
+  <div class="grid gap-8 lg:grid-cols-12">
+    <section class="lg:col-span-7">
+      <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">About</h1>
+      <p class="mt-4 text-slate-300 sm:text-lg">
+        I’m an SRE at BT working across cloud infrastructure, automation, and reliability. 
+        I design and build Python- and Terraform-driven systems on AWS that improve platform stability, reduce operational risk, and scale across environments.
+      </p>
+
+      <div class="mt-8 space-y-4">
+        <div class="card p-5">
+            <h2 class="font-semibold">What I care about</h2>
+            <ul class="mt-3 space-y-2 text-slate-300 list-disc pl-5">
+              <li>Automation that removes manual steps and reduces risk</li>
+              <li>Cloud infrastructure that is consistent and repeatable</li>
+              <li>Code and configuration that is easy for others to understand</li>
+            </ul>
+          </div>
+          
+
+          <div class="card p-5">
+            <h2 class="font-semibold">Tools & technologies</h2>
+          
+            <ul class="mt-3 space-y-2 text-slate-300">
+              <li>
+                <span class="text-white font-medium">Cloud & IaC:</span>
+                AWS, Terraform
+              </li>
+          
+              <li>
+                <span class="text-white font-medium">Automation & scripting:</span>
+                Python, REST APIs
+              </li>
+          
+              <li>
+                <span class="text-white font-medium">CI/CD & version control:</span>
+                Git, GitLab CI/CD
+              </li>
+          
+              <li>
+                <span class="text-white font-medium">Platforms I’ve automated against:</span>
+                FortiGate, FortiManager, F5 BIG-IP
+              </li>
+          
+              <li>
+                <span class="text-white font-medium">Containers & Linux:</span>
+                Kubernetes (exposure), Linux-based environments
+              </li>
+            </ul>
+          
+            <p class="mt-3 text-sm text-slate-400">
+              I’m currently deepening my Kubernetes knowledge and plan to add Ansible as part of my platform automation toolkit.
+            </p>
+          </div>          
+
+        <div class="card p-5">
+  <h2 class="font-semibold">Certifications</h2>
+
+  <ul class="mt-3 space-y-2 text-slate-300">
+    <li>
+      <span class="font-medium text-white">CompTIA</span>
+      <span class="text-slate-400">
+        — Network+, Security+
+      </span>
+    </li>
+
+    <li>
+      <span class="font-medium text-white">HashiCorp</span>
+      <span class="text-slate-400">
+        — Terraform Associate
+      </span>
+    </li>
+
+    <li>
+      <span class="font-medium text-white">AWS</span>
+      <span class="text-slate-400">
+        — Cloud Practitioner, Developer Associate
+      </span>
+    </li>
+  </ul>
+</div>
+
+
+        <div class="card p-5">
+          <h2 class="font-semibold">What I’m looking for next</h2>
+          <p class="mt-2 text-slate-300">
+            In 2026 I want to move into a stronger engineering environment where SRE/Platform work is treated as a product:
+            clear ownership, measurable reliability, and automation-first operations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <aside class="lg:col-span-5">
+      <div class="rounded-3xl border border-white/10 bg-gradient-to-b from-white/10 to-white/5 p-6">
+        <h2 class="text-lg font-semibold tracking-tight">Quick summary</h2>
+
+        <dl class="mt-4 grid gap-4">
+          <div class="card bg-slate-950/40 p-4">
+            <dt class="text-sm text-slate-400">Current Role</dt>
+            <dd class="mt-1 font-semibold">Site Reliability Engineering Specialist</dd>
+          </div>
+          <div class="card bg-slate-950/40 p-4">
+            <dt class="text-sm text-slate-400">Strengths</dt>
+            <dd class="mt-1 font-semibold">Automation • Cloud • Reliability</dd>
+          </div>
+          <div class="card bg-slate-950/40 p-4">
+            <dt class="text-sm text-slate-400">Based</dt>
+            <dd class="mt-1 font-semibold">Hertfordshire, UK 🇬🇧</dd>
+          </div>
+        </dl>
+
+        <div class="mt-6">
+          <a
+            href="/projects"
+            class="inline-flex w-full items-center justify-center rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-slate-950 hover:bg-slate-200"
+          >
+            View projects
+          </a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</BaseLayout>
